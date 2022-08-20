@@ -1,6 +1,7 @@
 const Homepage = () =>{
-    return (
-        <div>Sucessfully signed in</div>
+    return (<div className="homepage-wrap" >
+        <div className="homepage">Successfully signed in</div>
+        </div>
     )
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios"
+import "../App.css"
 
 const Admin = () => {
 
@@ -37,30 +38,30 @@ const Admin = () => {
 
   return (
     <div>
-        <button onClick={()=>{ localStorage.setItem("cred",JSON.stringify(null))
-      return navigate("/")
+        <button className='signout-btn' onClick={()=>{ localStorage.setItem("cred",JSON.stringify(null))
+      return navigate("/") 
       }}>Sign Out</button>
-    
-    <div>User Details</div>
-
-<div>
-    <table>
+    <div className='admin-container'>
        
-            <tr>
-<td>SI</td>
-<td>Email</td>
-            </tr>
-     {
-        users.map((e,i)=>{
-            return <tr>
-                <td>{i+1}</td>
-                <td>{e.email}</td>
-            </tr>
-        })
-     }
-    </table>
-</div>
-    </div>
+        <div className='table-container'>
+            <div className='user-details'>User Details</div>
+                <table className='table'>
+                        <tr className='table-heading'>
+                            <td className='s-no'>S.No</td>
+                            <td className='table-email'>Email</td>
+                        </tr>
+                        {
+                        users.map((e,i)=>{
+                            return <tr className='individual-rows'>
+                                <td className='s-no1'>{i+1}</td>
+                                <td className='individual-rows'>{e.email}</td>
+                            </tr>
+                        })
+                        }
+                </table>
+            </div>
+        </div>
+    </div>               
   )
 }
 

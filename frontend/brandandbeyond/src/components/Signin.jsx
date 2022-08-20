@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import '../App.css';
 
 
 
@@ -8,7 +9,8 @@ import axios from "axios";
 const Signin = () => {
 
   const navigate=useNavigate();
-const cred=JSON.parse(localStorage.getItem("cred"))
+
+  const cred=JSON.parse(localStorage.getItem("cred"))
      
 
     const [user,setUser]=useState({
@@ -41,7 +43,7 @@ const cred=JSON.parse(localStorage.getItem("cred"))
     return;
    }
 
-    axios.post("https://brandbeyond11.herokuapp.com/user/signup",{
+    axios.post("https://brandbeyond11.herokuapp.com/user/signin",{
         "email":user.email,
         "password":user.password
     }).then((res)=>{
@@ -73,17 +75,25 @@ const cred=JSON.parse(localStorage.getItem("cred"))
 
   return (
     
-    <div>
-        <input onChange={changeUserData}  id='email' type="email" placeholder='Email'/>
-    
-        <input onChange={changeUserData} id='password' type="password"  placeholder='Password' />
+    <div className='whole-wrap' >
+      
+      <div className='welcome-wrap'>
+        <div className='welcome'>Welcome! Please enter your details</div>
+      </div>
 
-        <div>
+      <div className='container'>
+      
 
-        <button onClick={signin} className='sign-shop'>Sign In</button><button onClick={signup} className='sign-shop'>Sign Up</button>
+        <div><input onChange={changeUserData} placeholder="Enter email"  id='email' type="email" placeholder='Email'/></div>  
+      
+        <div><input onChange={changeUserData} placeholder="Enter password" id='password' type="password"  placeholder='Password' /></div>  
 
-        </div>
+          <div className='buttons'>
+            <button className="signin-btn" onClick={signin}>Sign in</button>
+            <button className="signup-btn" onClick={signup}>Sign Up</button>
+          </div>
 
+      </div>
     </div>
       
   )

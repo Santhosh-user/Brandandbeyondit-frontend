@@ -41,7 +41,7 @@ const cred=JSON.parse(localStorage.getItem("cred"))
     return;
    }
 
-    axios.post("http://localhost:8080/user/signin",{
+    axios.post("https://brandbeyond11.herokuapp.com/signin",{
         "email":user.email,
         "password":user.password
     }).then((res)=>{
@@ -60,7 +60,7 @@ const cred=JSON.parse(localStorage.getItem("cred"))
         return;
         }
 
-        axios.post("http://localhost:8080/user/signup",{
+        axios.post("https://brandbeyond11.herokuapp.com/signup",{
         "email":user.email,
         "password":user.password
         }).then((res)=>{

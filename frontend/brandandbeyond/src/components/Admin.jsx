@@ -21,7 +21,7 @@ const Admin = () => {
     
     useEffect(()=>{
       
-        axios.post("http://localhost:8080/user",{},{
+        axios.post("https://brandbeyond11.herokuapp.com/user",{},{
         headers:{
             authorization: 'Bearer ' +  cred.token,
         }})
